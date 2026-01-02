@@ -1,3 +1,3 @@
-export const App = () => {
-  return <h1>hello</h1>;
-};
+export default function App() {
+  return <h1>App is working ✅</h1>;
+}
