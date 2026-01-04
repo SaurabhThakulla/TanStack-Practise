@@ -1,3 +1,3 @@
 export default function App() {
-  return <h1>App is working ✅</h1>;
+  return <h1>TanStackQuery Practise ✅</h1>;
 }
