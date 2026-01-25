@@ -1,25 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
-function fetchPosts() {
-  return fetch("https://jsonplaceholder.typicode.com/posts").then((res) =>
-    res.json()
-  );
-}
+import Posted from "./api/api"
 
 export default function App() {
-   const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, } = useQuery({
     queryKey: ["posts"],
-    queryFn: fetchPosts,
-  });
-
-  if (isLoading) return <h2>Loading...</h2>;
-  if (isError) return <h2>Error fetching posts</h2>;
-
+    queryFn: Posted
+  })
+  console.log(data, isLoading)
+  if (isLoading) return <h1>Loading...</h1>;
+  if (isError) return <h1>Error fetching posts</h1>;
   return (
     <div>
-      <h1>Posts</h1>
-      {data.slice(0, 10).map((post) => (
-        <p key={post.id}>{post.title}</p>
-      ))}
+      Hello 
     </div>
   );
 }
