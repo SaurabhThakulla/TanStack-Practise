@@ -5,3 +5,5 @@ const Posted = async () => {
     return postdata;
 }
 export default Posted;
+
+// npx json-server --watch src/api/data.json --port 3000

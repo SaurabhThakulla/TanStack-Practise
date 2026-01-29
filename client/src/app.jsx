@@ -2,18 +2,25 @@ import { useQuery } from "@tanstack/react-query";
 import Posted from "./api/api"
 
 export default function App() {
-  console.log("APP rendered")
-  const { data, isLoading, isError, status } = useQuery({
-    queryKey: ["posts"],
-    queryFn: Posted
+  const {data} = useQuery({
+    queryKey: ['post'],
+    queryFn: Posted,
+    
   })
-  if (isLoading) return <h1>Loading...</h1>;
-  if (isError) return <h1>Error fetching posts</h1>;
-  console.log(data, isLoading, status)
+  console.log(data);
+
   return (
     <div>
-      Hello World
+      {data?.map((e) => {
+        const { title, views } = e;
+        return(
+        <div key={e.id}>
+            <div>title : {title}</div>
+            <div>views : : {views}</div>
+        </div>
+        )
+      })}
+
     </div>
   );
-}
-
+}                             
