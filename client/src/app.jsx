@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import Posted from "./api/api"
 
 export default function App() {
-  const { data } = useQuery({
+  const { data=[] } = useQuery({
     queryKey: ['posts'],
     queryFn: Posted,
   })
